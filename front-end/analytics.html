@@ -1,0 +1,218 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="source/semantic/semantic.css">
+  <script src="source/jquery-3.1.0.min.js"></script>
+  <script src="source/semantic/semantic.js"></script>
+  <script type="text/javascript" src="source/js/canvasjs.min.js"></script>
+  <title>Trading Platform</title>
+</head>
+
+<body>
+<div class="ui container">
+<div class="ui secondary  menu">
+  <a class="item" href="index.html">
+    All Stocks
+  </a>
+  <a class="item" href="open-positions.html">
+    Open Positions
+  </a>
+  <a class="item" href="strategies.html">
+    Strategies
+  </a>
+  <a class="item active">
+    Analytics
+  </a>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input type="text" placeholder="Search...">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+    <a class="ui item">
+      Logout
+    </a>
+  </div>
+</div>
+<div class="ui container">
+
+  <select class="ui search dropdown">
+    <option value="0">All Strategies</option>
+    <option value="1">Bull Dozer</option>
+    <option value="2">Sleepy Bear</option>
+  </select>
+
+  <br/>  
+  <div class="ui statistics">
+    <div class="statistic">
+      <div class="value">3</div>
+      <div class="label">Number of times used</div>
+    </div>
+    <div class="statistic">
+      <div class="value">$22</div>
+      <div class="label">Average Earned</div>
+    </div>
+    <div class="statistic">
+      <div class="value">$23</div>
+      <div class="label">Highest Earning</div>
+    </div>
+    <div class="statistic">
+      <div class="value">$230</div>
+      <div class="label">Highest Loss</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui grid">
+  <div class="four wide column" id="chartContainer" style="height: 200px; width: 25%;"></div>
+  <div class="four wide column" id="chartContainer2" style="height: 200px; width: 25%;"></div>
+  <div class="four wide column" id="chartContainer3" style="height: 200px; width: 25%;"></div>
+  <div class="four wide column" id="chartContainer" style="height: 200px; width: 25%;"></div> 
+</div>
+
+<h3>Trading History</h3>
+<table class="ui compact celled definition table">
+
+  <thead>
+    <tr><th>
+      <th>Strategy Name</th>
+      <th>Stock</th>
+      <th>Date Activated</th>
+      <th>Position</th>
+      <th>Date Bought</th>
+      <th>Price Bought</th>
+      <th>Date Sold</th>
+      <th>Price Sold</th>
+      <th>Short Period</th>
+      <th>Long Period</th>
+      <th>Profit Percentage</th>
+      <th>Loss Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td/>
+        <td class="single line">Bull Dozer</td>
+        <td class="single line">AAPL</td>
+        <td class="single line">22/3</td>
+        <td class="single line">Long</td>
+        <td class="single line">22/4</td>
+        <td class="single line">22.3</td>
+        <td class="single line">25/5</td>
+        <td class="single line">32.4</td>
+        <td class="single line">3 days</td>
+        <td class="single line">3 weeks</td>
+        <td class="single line">12</td>
+        <td class="single line">5</td>
+    </tr>
+    <tr>
+      <td/>
+      <td class="single line">Bull Dozer</td>
+      <td class="single line">AAPL</td>
+      <td class="single line">22/3</td>
+      <td class="single line">Long</td>
+      <td class="single line">22/4</td>
+      <td class="single line">22.3</td>
+      <td class="single line">25/5</td>
+      <td class="single line">32.4</td>
+      <td class="single line">3 days</td>
+      <td class="single line">3 weeks</td>
+      <td class="single line">12</td>
+      <td class="single line">5</td>
+    </tr>
+  </tbody>
+
+</table>
+</div>
+
+
+
+</body>
+
+<script>
+
+$(document)
+    .ready(function() {
+});
+</script>
+
+
+<script type="text/javascript">
+
+window.onload = function () {
+  var chart = new CanvasJS.Chart("chartContainer", {
+    title:{
+      text: "Profits"              
+    },
+    data: [              
+    {
+      // Change type to "doughnut", "line", "splineArea", etc.
+      type: "column",
+      color: "darkblue",
+      dataPoints: [
+        { label: "27/2",  y: 10  },
+        { label: "23/3", y: 15  },
+        { label: "7/4", y: 25  },
+        { label: "3/5",  y: 30  },
+        { label: "6/6",  y: 28 }
+      ]
+    }
+    ]
+  });
+  chart.render();
+
+
+  var chart = new CanvasJS.Chart("chartContainer2", {
+    title:{
+      text: "Profits"              
+    },
+    data: [              
+    {
+      // Change type to "doughnut", "line", "splineArea", etc.
+      type: "doughnut",
+      dataPoints: [
+        { label: "27/2",  y: 10  },
+        { label: "23/3", y: 15  },
+        { label: "7/4", y: 25  },
+        { label: "3/5",  y: 30  },
+        { label: "6/6",  y: 28 }
+      ]
+    }
+    ]
+  });
+  chart.render();
+
+  var chart = new CanvasJS.Chart("chartContainer3", {
+  title:{
+    text: "Profits"              
+  },
+  data: [              
+  {
+    // Change type to "doughnut", "line", "splineArea", etc.
+    type: "splineArea",
+    color: "darkblue",
+    dataPoints: [
+      { label: "27/2",  y: 10  },
+      { label: "23/3", y: 15  },
+      { label: "7/4", y: 25  },
+      { label: "3/5",  y: 30  },
+      { label: "6/6",  y: 28 }
+    ]
+  }
+  ]
+});
+chart.render();
+}
+
+
+</script>
+
+
+  
+
+</html>
+
+
+
+

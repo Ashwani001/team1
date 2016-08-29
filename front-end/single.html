@@ -1,0 +1,155 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="source/semantic/semantic.css">
+	<script src="source/jquery-3.1.0.min.js"></script>
+	<script src="source/semantic/semantic.js"></script>
+  <script type="text/javascript" src="source/js/canvasjs.min.js"></script>
+	<title>Trading Platform</title>
+</head>
+
+<body>
+<div class="ui container">
+<div class="ui secondary  menu">
+  <a class="item" href="index.html">
+    All Stocks
+  </a>
+  <a class="item" href="open-positions.html">
+    Open Positions
+  </a>
+  <a class="item"  href="strategies.html">
+    Strategies
+  </a>
+  <a class="item" href="analytics.html">
+    Analytics
+  </a>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input type="text" placeholder="Search...">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+    <a class="ui item">
+      Logout
+    </a>
+  </div>
+</div>
+<div class="ui container">
+<h1>AAPL</h1>
+<br />
+
+<div class="ui grid">
+  <div class="six wide column">
+    <img src="http://chart.finance.yahoo.com/z?s=AAPL&t=6m&q=l&l=on&z=s&p=m50,m200" height="200" width="350">
+  </div>
+  
+
+  <div class="ui statistics">
+    <div class="statistic">
+      <div class="value">
+
+        <font size="4">$22.44</font><font color="green">22</font>
+
+      </div>
+      <div class="label">
+        Bid
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="value">
+        <font size="4">$22.44</font><font color="red">22</font>
+      </div>
+      <div class="label">
+        Ask
+      </div>
+    </div>
+  
+
+  </div>
+</div>
+
+
+
+
+
+<br />
+<h3>At a glance</h3>
+<div class="ui statistics">
+  <div class="statistic">
+    <div class="value">80000</div>
+    <div class="label">Shares held</div>
+  </div>
+  <div class="statistic">
+    <div class="value">$22</div>
+    <div class="label">Per share</div>
+  </div>
+  <div class="statistic">
+    <div class="value">$231223</div>
+    <div class="label">Total Value</div>
+  </div>
+  <div class="statistic">
+    <div class="text value">Long</div>
+    <div class="label">Position</div>
+  </div>
+  
+</div>
+<h3>Trading History</h3>
+
+
+
+
+
+<table class="ui compact celled definition table">
+
+  <thead>
+    <tr><th>
+      <th>Date Bought</th>
+      <th>Price Bought</th>
+      <th>Date Sold</th>
+      <th>Price Sold</th>
+      <th>Profit/Loss</th>
+      <th>Strategy Used</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td/>
+        <td class="single line">25/5</td>
+        <td class="single line">22.3</td>
+        <td class="single line">22/4</td>
+        <td class="single line">32.4</td>
+        <td class="single line">$25</td>
+        <td class="single line">Bull Dozer</td>
+    </tr>
+    <tr>
+        <td/>
+        <td class="single line">25/5</td>
+        <td class="single line">22.3</td>
+        <td class="single line">22/4</td>
+        <td class="single line">32.4</td>
+        <td class="single line">$25</td>
+        <td class="single line">Bull Dozer</td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+
+
+
+
+</div>
+</div>
+
+</body>
+
+<script>
+
+$(document)
+    .ready(function() {
+});
+</script>
+
+
+</html>

@@ -1,0 +1,286 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="source/semantic/semantic.css">
+	<script src="source/jquery-3.1.0.min.js"></script>
+	<script src="source/semantic/semantic.js"></script>
+  <script type="text/javascript" src="source/js/canvasjs.min.js"></script>
+
+	<title>Trading Platform</title>
+</head>
+
+<body>
+<div class="ui container">
+  <div class="ui secondary  menu">
+    <a class="item" href="index.html">
+      All Stocks
+    </a>
+    <a class="item active">
+      Open Positions
+    </a>
+    <a class="item" href="strategies.html">
+      Strategies
+    </a>
+    <a class="item" href="analytics.html">
+      Analytics
+    </a>
+    <div class="right menu">
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search">
+          <i class="search link icon"></i>
+        </div>
+      </div>
+      <a class="ui item">
+        Logout
+      </a>
+    </div>
+  </div>
+  
+<div>
+<button class="ui basic button" id="btn-add-stock">
+  <i class="plus icon"></i>
+  Add Stock
+</button>
+</div>
+<table class="ui celled padded table">
+  <thead>
+    <tr><th class="single line">Stock Name</th>
+    <th>Price</th>
+    <th>Bid</th>
+    <th>Ask</th>
+	<th>Position</th>
+	<th>Chart</th>
+    <th>Strategy</th>
+	<th>Suspend</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>
+        <h2 class="ui center aligned header">AAPL</h2>
+      </td>
+      <td class="single line">
+        22.57
+      </td>
+      <td class="single line">
+        23.57
+      </td>
+      <td class="single line">
+        24.57
+      </td>
+	  <td class="right aligned">
+        Long<br />
+		10000000
+      </td>
+	  <td class="single line">
+		<i class="line chart icon"></i>
+	  </td>
+	  <td class="single line">
+		<i class="settings icon" onclick="test()"></i>
+	  </td>
+	  <td class="warning">
+		<i class="attention icon"></i><div class="ui dropdown item">
+		  <div class="text">Suspend</div>
+		  <i class="dropdown icon"></i>
+		  <div class="menu">
+			<div class="item">Suspend</div>
+			<div class="item">Run</div>
+		  </div>
+		</div>
+	  </td>
+	</tr>
+    <tr>
+      <td>
+        <h2 class="ui center aligned header">GOOG</h2>
+      </td>
+      <td class="single line">
+        19.11
+      </td>
+      <td class="single line">
+        20.15
+      </td>
+      <td class="single line">
+        19.82
+      </td>
+	  <td class="right aligned">
+        Long<br />
+		7000000
+      </td>
+	  <td class="single line">
+		<i class="line chart icon"></i>
+	  </td>
+	  <td class="single line">
+		<i class="settings icon" onclick="test()"></i>
+	  </td>
+	  <td id="box2" class="positive">
+		<i class="checkmark icon" id="icon2"></i><div class="ui dropdown" id="dropdown2">
+		  <div class="text" id="status2">Run</div>
+		  <i class="dropdown icon"></i>
+		  <div class="menu" id="option2">
+			<div class="item" id="suspend2">Suspend</div>
+			<div class="item" id="run2">Run</div>
+		  </div>
+		</div>
+	  </td>
+	</tr>
+  </tbody>
+</table>
+</div>
+
+<div class="ui modal" id="strategy-config">
+  <div class="header">
+    Configure Strategy
+  </div>
+  <div class="content">
+    <div class="description">
+      <div class="ui header">Your Strategy:  
+	  <select class="ui dropdown" id="strategyDropdown">
+		  <option value="1">Two Moving Averages</option>
+		  <option value="0">Bollinger Bands</option>
+	</select>
+	</div>
+	<div id="config-panel" class="ui content">
+	<div class="ui form">
+	  <div class="inline field">
+		<label>Short Average Period: </label>
+		<input type="text" placeholder="short period"> seconds
+	  </div>
+	  <div class="inline field">
+		<label>Long Average Period: </label>
+		<input type="text" placeholder="long period"> seconds
+	  </div>
+	  <div class="inline field">
+		<label>Exit Condition, Profit Percentage: </label>
+		<input type="text" placeholder="exit profit percentage">%
+	  </div>
+	  <div class="inline field">
+		<label>Exit Condition, Loss Percentage: </label>
+		<input type="text" placeholder="exit loss percentage">%
+	  </div>
+	</div>
+	</div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+      OK
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+<div class="ui modal" id="add-stock">
+  <div class="header">
+    Select stocks to add
+  </div>
+  <div class="content">
+<table class="ui compact celled definition table">
+  <thead class="full-width">
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Open</th>
+      <th>Close</th>
+      <th>High</th>
+      <th>Low</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="collapsing">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox"> <label></label>
+        </div>
+      </td>
+      <td>VRZN</td>
+      <td>2.2</td>
+      <td>2.5</td>
+      <td>3.1</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <td class="collapsing">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox"> <label></label>
+        </div>
+      </td>
+      <td>IBM</td>
+      <td>2.2</td>
+      <td>2.5</td>
+      <td>3.1</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <td class="collapsing">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox"> <label></label>
+        </div>
+      </td>
+      <td>VRZN</td>
+      <td>2.2</td>
+      <td>2.5</td>
+      <td>3.1</td>
+      <td>3.2</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+      OK
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+</body>
+
+<script>
+function test() {
+	$('#strategy-config').modal('show');
+}
+
+$('#btn-add-stock').click(function() {
+	$('#add-stock').modal('show');
+});
+
+$('#add-selected-stocks').click(function() {
+	$('#add-stock').modal('show');
+});
+
+
+$(document)
+    .ready(function() {
+      $('#dropdown2').dropdown();
+      $('.ui.dropdown').dropdown({
+          on: 'click'
+      });
+	  $('#suspend2')
+        .on('click', function() {
+		$('#suspend2').hide();
+		$('#run2').show();
+        //$('#status2').text("Suspended");
+		//$('#option2').html("<div class='item' id='run2'>Run</div>");
+		$('#box2').removeClass();
+		$('#box2').addClass("warning");
+		$('#icon2').removeClass();
+		$('#icon2').addClass("attention icon");
+      });
+	  $('#run2')
+        .on('click', function() {
+		$('#run2').hide();
+		$('#suspend2').show();
+        //$('#status2').text("Running");
+		//$('#option2').html("<div class='item' id='suspend2'>Suspend</div>");
+		$('#box2').removeClass();
+		$('#box2').addClass("positive");
+		$('#icon2').removeClass();
+		$('#icon2').addClass("checkmark icon");
+      });
+});
+</script>
+</html>

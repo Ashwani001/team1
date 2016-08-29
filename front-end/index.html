@@ -1,0 +1,143 @@
+<html>
+  <head>
+  	<link rel="stylesheet" type="text/css" href="source/semantic/semantic.css">
+  	<script src="source/jquery-3.1.0.min.js"></script>
+  	<script src="source/semantic/semantic.js"></script>
+    <script type="text/javascript" src="source/js/canvasjs.min.js"></script>
+    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  	<title>Trading Platform</title>
+  </head>
+
+<body>
+<div class="ui container">
+<div class="ui secondary  menu">
+  <a class="item active">
+    All Stocks
+  </a>
+  <a class="item" href="open-positions.html">
+    Open Positions
+  </a>
+  <a class="item" href="Strategies.html">
+    Strategies
+  </a>
+  <a class="item" href="analytics.html">
+    Analytics
+  </a>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input type="text" placeholder="Search...">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+    <a class="ui item">
+      Logout
+    </a>
+  </div>
+</div>
+
+  
+<table class="ui compact celled definition table">
+  <thead>
+    <tr><th></th><th>Stock Name</th>
+    <th>Bid</th>
+    <th>Ask</th>
+	<th>Change Pct</th>
+	<th>High</th>
+    <th>Low</th>
+  </tr></thead>
+  <tbody>
+    <tr> 
+	<td class="collapsing">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox" id="addStock"> <label></label>
+        </div>
+      </td>
+      <td>AAPL
+      </td>
+      <td class="single line">
+        22.57
+      </td>
+      <td class="single line">
+        23.57
+      </td>
+      <td class="single line">
+        2.22
+      </td>
+	  <td class="single line">
+        21.15
+      </td>
+	  <td class="single line">
+		18.11
+	  </td>
+	</tr>
+  </tbody>
+</table>
+</div>
+
+<div class="ui modal" id="strategy-config">
+  <div class="header">
+    Strategy for your new stock
+  </div>
+  <div class="content">
+    <div class="description">
+      <div class="ui header">Your Strategy:  
+	  <select class="ui dropdown" id="strategyDropdown">
+		  <option value="1">Two Moving Averages</option>
+		  <option value="0">Bollinger Bands</option>
+	</select>
+	</div>
+	<div id="config-panel" class="ui content">
+	<div class="ui form">
+	  <div class="inline field">
+		<label>Short Average Period: </label>
+		<input type="text" placeholder="short period"> seconds
+	  </div>
+	  <div class="inline field">
+		<label>Long Average Period: </label>
+		<input type="text" placeholder="long period"> seconds
+	  </div>
+	  <div class="inline field">
+		<label>Exit Condition, Profit Percentage: </label>
+		<input type="text" placeholder="exit profit percentage">%
+	  </div>
+	  <div class="inline field">
+		<label>Exit Condition, Loss Percentage: </label>
+		<input type="text" placeholder="exit loss percentage">%
+	  </div>
+	</div>
+	</div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button" id="config-cancel">
+      Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+      OK
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+</body>
+
+<script>
+
+$("#addStock").change(function() {
+    if(this.checked) {
+        $('#strategy-config').modal('show');
+    }
+});
+
+$("#config-cancel").click(function() {
+	$('#addStock').prop('checked', false);
+});
+
+$(document)
+    .ready(function() {
+});
+</script>
+
+
+</html>

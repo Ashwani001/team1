@@ -1,0 +1,171 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="source/semantic/semantic.css">
+	<script src="source/jquery-3.1.0.min.js"></script>
+	<script src="source/semantic/semantic.js"></script>
+  <script type="text/javascript" src="source/js/canvasjs.min.js"></script>
+	<title>Trading Platform</title>
+</head>
+
+<body>
+<div class="ui container">
+
+
+<div class="ui secondary  menu">
+  <a class="item" href="index.html">
+    All Stocks
+  </a>
+  <a class="item" href="open-positions.html">
+    Open Positions
+  </a>
+  <a class="item active">
+    Strategies
+  </a>
+  <a class="item" href="analytics.html">
+    Analytics
+  </a>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input type="text" placeholder="Search...">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+    <a class="ui item">
+      Logout
+    </a>
+  </div>
+</div>
+
+  
+
+
+<div>
+<button class="ui basic button" id="btn-add-stock" style="float:right">
+  <i class="plus icon"></i>
+  Add Stock
+</button>
+</div>
+
+<table class="ui compact celled definition table">
+  <thead>
+    <tr><th><th>
+    <th>Strategy Name</th>
+    <th>Stock</th>
+    <th>Status</th>
+	<th>Short Period</th>
+	<th>Long Period</th>
+    <th>Profit Percentage</th>
+    <th>Loss Percentage</th>
+    <th>Position</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+
+<td class="collapsing">
+        <button class="ui fitted centered button">
+          <i class="options icon"></i>
+        </button>   
+    </td>
+	   <td class="collapsing">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox" id="addStock"> <label></label>
+        </div>    
+    </td>
+     
+
+      <td>Bull Dozer
+      </td>
+      <td class="single line">
+        AAPL
+      </td>
+      <td id='rgActiveStaus' class="single line">
+        Active(Green)/Non Active(Grey)
+      </td>
+      <td class="single line">
+        2 days
+      </td>
+	  <td class="single line">
+        2 weeks
+      </td>
+	  <td class="single line">
+		18.11
+	  </td>
+    <td class="single line">
+    18.11
+    </td>
+    <td class="single line">
+    Non Active(Grey)/Awaiting Buy(Yellow?)/ $45(Green/Red)
+    </td>
+	</tr>
+  </tbody>
+</table>
+</div>
+
+<div class="ui modal" id="strategy-config">
+  <div class="header">
+    Strategy for your new stock
+  </div>
+  <div class="content">
+    <div class="description">
+      <div class="ui header">Your Strategy:  
+	  <select class="ui dropdown" id="strategyDropdown">
+		  <option value="1">Two Moving Averages</option>
+		  <option value="0">Bollinger Bands</option>
+	</select>
+	</div>
+	<div id="config-panel" class="ui content">
+	<div class="ui form">
+	  <div class="inline field">
+		<label>Short Average Period: </label>
+		<input type="text" placeholder="short period"> seconds
+	  </div>
+	  <div class="inline field">
+		<label>Long Average Period: </label>
+		<input type="text" placeholder="long period"> seconds
+	  </div>
+	  <div class="inline field">
+		<label>Exit Condition, Profit Percentage: </label>
+		<input type="text" placeholder="exit profit percentage">%
+	  </div>
+	  <div class="inline field">
+		<label>Exit Condition, Loss Percentage: </label>
+		<input type="text" placeholder="exit loss percentage">%
+	  </div>
+	</div>
+	</div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button" id="config-cancel">
+      Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+      OK
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+</body>
+
+<script>
+
+$("#addStock").change(function() {
+    if(this.checked) {
+        $('#strategy-config').modal('show');
+    }
+});
+
+$("#config-cancel").click(function() {
+	$('#addStock').prop('checked', false);
+});
+
+$(document)
+    .ready(function() {
+});
+</script>
+
+
+</html>
+ 
